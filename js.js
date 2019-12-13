@@ -4,9 +4,10 @@ $('.dmoder').click(function(event) {
 	$('.lol').toggleClass('bg-dark colwhite');
 	$('.lmao').toggleClass('navbar-dark bg-dark').toggleClass('navbar-light bg-secondary ');
 	loler++;
-	if(loler%2==0){$('.dmoder').text('Light Mode');}
+	if(loler%2==0){$('.dmoder').text('Light Mode');$('.lol').css('background', "url('assets/img/bcc.jpg')");}
 	else {
 		$('.dmoder').text('Dark Mode');
+		$('.lol').css('background', "url('assets/img/conc.jpg')");
 	}
 });
 $(document).ready(function() {
