@@ -48,8 +48,8 @@ body{
 	position: absolute;
 	animation: rot 1s infinite linear; 
 }
-.kk{
-	
+.lol{
+	background: url('assets/img/conc.jpg');
 
 }
 @media only screen and (max-width: 600px) {
