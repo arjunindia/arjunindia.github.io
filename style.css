@@ -1,63 +1,96 @@
-@font-face {
-font-family: 'HomeSweetHome-Regular';
-font-style: normal;
-font-weight: normal;
-src: local('HomeSweetHome-Regular'), url('assets/home sweet home.woff') format('woff');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+* {
+	font-family: 'Rubik Mono One', sans-serif;
+	transition: all 0.3s ease-in-out;
 }
-
-
-@font-face {
-font-family: 'HomeSweetHomeOutline-Regular';
-font-style: normal;
-font-weight: normal;
-src: local('HomeSweetHomeOutline-Regular'), url('assets/home sweet home outline.woff') format('woff');
+:root{
+	--color-p:#ffd5cd;
+	--color-s:#efbbcf;
+	--color-t:#c3aed6;
+	--color-q:#8675a9;
 }
 body{
-	width: 100vw;
-	height:100%;
-
-}
-
-.container-fluid{
-	width: 100vw;
-	margin-left: -0.5%;
+	margin: 0 auto;
 }
 .lol{
-	height: 90vh;
+	min-height: 100vh;
+	background: var(--color-s);
+	background-color: #330033;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23404' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23505'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+	background-size: contain;
+	padding: 3rem;
+	background-attachment: fixed;
 }
-
-.colwhite{
-	color: white;
+.lol .content-holder-home h1,h2{
+	letter-spacing: 0.15em;
+	font-weight: lighter;
+	color: var(--color-p);
 }
-#lscr{
+.lol .content-holder-home h1:before,.lol .content-holder-home h2:after{
+	content:"";
+	display: block;
+	height: 0.4em;
+	background:var(--color-q);
+}
+.lol .content-holder-home h1:before{
+	width: 200px;
+	margin-block-end: 1rem;
+}
+.lol .content-holder-home h2:after{
+	width: 300px;
+	margin-block-start: 1rem;
+}
+.lol .content-holder-home .link{
+	background:var(--color-p);
+	width:min-content;
+	padding: 10px;
+	display: block;
+	margin-block-start: 0;
+	margin-block-start: 3rem;
+	border-radius: 8px;
+	opacity: 0.8;
+}
+.lol .content-holder-home .link figure{
+	width: 3em;
+	height: 3em;
+	display: block;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+	margin-inline-end: 0;
+    margin-block-start: 0;
+	cursor: pointer;
+}
+.lol .content-holder-home .link:hover figure{
+	transform:scale(1.3);
+}
+.content-holder-home-bt{
 	display: flex;
-	justify-content: center;
+    justify-content: flex-end;
+	align-items: baseline;
+	margin-block-start: 10rem;
+}
+span{
+	text-align: right;
+	margin-block-start: 2rem;
+	display: block;
+	color: var(--color-p);
+}
+span a{
+	text-decoration: none;
+	color: var(--color-q);
+}
+.content-holder-home-bt figure{
+	background: var(--color-p);
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+	padding: 0.8em;
+	display: flex;
+    justify-content:center;
 	align-items: center;
-	align-self: center;
-	top: 0;
-	left: 0;
-	position: absolute;
+	box-shadow: 0 0 8px -1px var(--color-s);
+}
+.content-holder-home-bt figure img{
 	width: 100%;
 	height: 100%;
-	background-color: grey;
-	z-index: 9999;
-
-}
-#lscr h1{
-	display: flex;
-	position: absolute;
-	animation: rot 1s infinite linear; 
-}
-.lol{
-	background: url('assets/img/conc.jpg');
-
-}
-@media only screen and (max-width: 600px) {
-	body{
-	margin: 0 -1%;
-}
-}
-@keyframes rot{
-	from{transform: rotate(0deg);}
-	to{transform: rotate(360deg);}
 }
