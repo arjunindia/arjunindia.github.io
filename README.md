@@ -25,8 +25,6 @@ This is a personal portfolio page that I created to showcase my work and skills.
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-```
-
 ## Acknowledgments
 
 * [Astro](https://astro.build/)
