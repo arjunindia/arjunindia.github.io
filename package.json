@@ -10,6 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/red-hat-display": "^5.0.9",
+    "@fontsource/dm-serif-display": "^5.0.9",
+    "@splinetool/runtime": "^0.9.420",
     "astro": "^2.10.8"
   }
 }
