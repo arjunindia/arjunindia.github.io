@@ -1,0 +1,114 @@
+<lottie-player
+  src="/menu.json"
+  background="transparent"
+  speed="1"
+  class="menuIcon"></lottie-player>
+<div class="menu blue-to-black">
+  <ul>
+    <li><a href="/" class="hover-underline-animation">Home</a></li>
+    <li><a href="/about" class="hover-underline-animation">About</a></li>
+    <li>
+      <a href="/projects" class="hover-underline-animation">Projects</a>
+    </li>
+  </ul>
+</div>
+<script>
+  import type { LottiePlayer } from "@lottiefiles/lottie-player";
+  import "@lottiefiles/lottie-player";
+  import anime from "animejs";
+  import { breakApart } from "../utils";
+  const menuAnim = breakApart(
+    "letters",
+    ".menu ul li a",
+    false,
+    0,
+    true,
+    anime.stagger(100)
+  );
+  // menu animation
+  const menu = document.querySelector(".menuIcon") as LottiePlayer;
+  const menuEl = document.querySelector(".menu") as HTMLElement;
+
+  let menuState: boolean = false;
+  menu.addEventListener("click", () => {
+    if (menuState) {
+      menu.setDirection(-1);
+      menu.setSpeed(2.2);
+      menu.play();
+      menuEl.style.transform = "translateX(100%)";
+      menuState = false;
+    } else {
+      menu.setDirection(1);
+      menu.setSpeed(2);
+      menu.play();
+      menuEl.style.transform = "translateX(0%)";
+      menuAnim.play();
+      menuState = true;
+    }
+  });
+
+  // menu
+
+  const menuItems = document.querySelectorAll(".menu ul li a");
+  menuItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      menu.setDirection(1);
+      menu.setSpeed(2.2);
+      menu.play();
+      menuState = false;
+      menuEl.style.transform = "translateX(0%)";
+    });
+  });
+</script>
+<style>
+  /* slide out menu */
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 800;
+    width: 50vw;
+    height: 100vh;
+    background: var(--accent-gradient);
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out;
+    padding: 0 4rem;
+  }
+  .menu ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .menu ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  .menu ul li a {
+    color: #fff;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    font-family: "DM Serif Display", sans-serif;
+    text-decoration: none;
+  }
+
+  .menuIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 8rem;
+    height: 8rem;
+  }
+  .menuIcon:hover {
+    cursor: pointer;
+  }
+</style>
