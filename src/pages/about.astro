@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "@fontsource/red-hat-display/300.css";
+---
+
+<Layout title="About" description="About me, and this project.">
+  <main>
+    <p>
+      I’m <span class="bold">Arjun</span>, a “frontend?” developer (but I won’t
+      fully stick with that title, I like to write other stuff as well). I
+      mainly use TypeScript, but have been recently experimenting with Rust.
+      Messing with technology has been my hobby since forever, and been doing
+      programming since 9th grade. But all my serious-er projects were done
+      after my junior college years.
+    </p><p>
+      I haven’t had a personal portfolio in so long, because I always wanted it
+      to be really special. This is a design I got inspired from many random
+      websites andprojects that I had found on places like dribble, behance and
+      especially spline 3d. This still feels very simple to me, but much better
+      than making a simple page. I also wanted to add like a blog, I don’t think
+      it would work with this design, but I might still try it. Maybe I’ll
+      completely abandon this, who knows ;)
+    </p><p>
+      Anyways, I’m glad I could make this website, and it looks good and
+      impressive for me at least. So I’m satisfied.
+    </p>
+  </main>
+</Layout>
+
+<script></script>
+
+<style>
+  main {
+    color: aliceblue;
+    padding: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+  p {
+    color: #fff;
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 150%; /* 2.25rem */
+    max-width: 80ch;
+    text-wrap: balance;
+  }
+  .bold {
+    font-weight: 600;
+  }
+</style>
