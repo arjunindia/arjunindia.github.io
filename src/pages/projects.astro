@@ -1,21 +1,125 @@
 ---
+import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import "@fontsource/red-hat-display/300.css";
+import "@glidejs/glide/dist/css/glide.core.min.css";
+
+interface Projects {
+  name: string;
+  description: string;
+  image: string;
+  url: string;
+}
+const projects: Projects[] = [
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+  {
+    name: "Portfolio Page",
+    description: "A Page, for me and my projects.",
+    image: "portfolio.png",
+    url: "https://arjunindia.github.io/",
+  },
+];
 ---
 
-<Layout title="About" description="About me, and this project.">
-  <main></main>
+<Layout title="Projects" description="An Array of projects I have made.">
+  <main>
+    <div class="glide">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          {projects.map((project) => <Card {...project} />)}
+        </ul>
+      </div>
+      <div class="glide__arrows" data-glide-el="controls">
+        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"
+          >prev</button
+        >
+        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"
+          >next</button
+        >
+      </div>
+    </div>
+  </main>
 </Layout>
 
-<script></script>
+<script>
+  // @ts-ignore
+  import Glide from "@glidejs/glide";
+
+  new Glide(".glide").mount();
+</script>
 
 <style>
   main {
     color: aliceblue;
     padding: 6rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: start;
+    gap: 8rem;
   }
 </style>
