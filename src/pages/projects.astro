@@ -3,6 +3,7 @@ import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import "@fontsource/red-hat-display/300.css";
 import "@glidejs/glide/dist/css/glide.core.min.css";
+import "@glidejs/glide/dist/css/glide.theme.min.css";
 
 interface Projects {
   name: string;
@@ -15,73 +16,19 @@ const projects: Projects[] = [
     name: "Portfolio Page",
     description: "A Page, for me and my projects.",
     image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
+    url: "https://github.com/arjunindia/arjunindia.github.io",
   },
   {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
+    name: "TUI Pokedex",
+    description: "A Pokedex in your terminal.",
+    image: "tuipokedex.png",
+    url: "https://github.com/arjunindia/tui_pokedex",
   },
   {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
-  },
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
-  },
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
-  },
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
-  },
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
-  },
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
-  },
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
-  },
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
-  },
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
-  },
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://arjunindia.github.io/",
+    name: "Positron",
+    description: "Search and add your movies/shows.",
+    image: "positron.png",
+    url: "https://github.com/arjunindia/positron",
   },
 ];
 ---
@@ -110,13 +57,30 @@ const projects: Projects[] = [
   // @ts-ignore
   import Glide from "@glidejs/glide";
 
-  new Glide(".glide").mount();
+  new Glide(".glide", {
+    type: "slider",
+    startAt: 0,
+    perView: 4,
+    autoplay: 2000,
+    focusAt: 1,
+    gap: 30,
+
+    breakpoints: {
+      1200: {
+        perView: 2,
+      },
+      800: {
+        perView: 1,
+      },
+    },
+  }).mount();
 </script>
 
 <style>
   main {
     color: aliceblue;
     padding: 6rem;
+    padding-top: 8rem;
     display: flex;
     justify-content: center;
     align-items: start;
