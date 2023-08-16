@@ -161,6 +161,19 @@ import Sidenav from "../components/Sidenav.astro";
         margin: 0;
         font-family: "Red Hat Display Variable", sans-serif;
       }
+      @media screen and (max-width: 800px) {
+        .bottom {
+          margin: 0 2rem;
+          width: calc(100% - 4rem);
+        }
+        .bottom > h1 {
+          font-size: 3rem;
+          width: 2rem;
+        }
+        .bottom > p {
+          font-size: 1rem;
+        }
+      }
     </style>
     <style is:global>
       :root {

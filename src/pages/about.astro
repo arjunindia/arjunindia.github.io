@@ -51,4 +51,19 @@ import "@fontsource/red-hat-display/300.css";
   .bold {
     font-weight: 600;
   }
+
+  @media screen and (max-width: 800px) {
+    main {
+      padding: clamp(5rem, 15vh, 30rem) 2rem;
+      overflow-y: scroll;
+      max-height: 60vh;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+    p:nth-child(1) {
+      scroll-margin-top: 18rem;
+      margin-top: 8rem;
+    }
+  }
 </style>
