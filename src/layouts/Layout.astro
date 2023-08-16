@@ -28,13 +28,18 @@ import "@fontsource-variable/red-hat-display";
       <p>{description}</p>
     </div>
     <slot />
+    <lottie-player
+      src="/menu.json"
+      background="transparent"
+      speed="1"
+      class="menuIcon"></lottie-player>
   </body>
 </html>
+
 <script>
   //@ts-nocheck
   const canvas = document.getElementById("stars")! as HTMLCanvasElement;
   const ctx = canvas.getContext("2d");
-  const slider = document.querySelector(".slider input")! as HTMLInputElement;
 
   let screen = {};
   let stars = [];
@@ -42,10 +47,6 @@ import "@fontsource-variable/red-hat-display";
 
   setupStars();
   updateStars();
-
-  slider.oninput = function () {
-    params.speed = this.value;
-  };
 
   // update stars on resize to keep the thing centered
   window.onresize = function () {
@@ -108,7 +109,39 @@ import "@fontsource-variable/red-hat-display";
     window.requestAnimationFrame(updateStars);
   }
 </script>
+<script>
+  import type { LottiePlayer } from "@lottiefiles/lottie-player";
+  import "@lottiefiles/lottie-player";
+
+  // menu animation
+  const menu = document.querySelector(".menuIcon") as LottiePlayer;
+  let menuState: boolean = false;
+  menu.addEventListener("click", () => {
+    if (menuState) {
+      menu.setDirection(-1);
+      menu.setSpeed(2.2);
+      menu.play();
+      menuState = false;
+    } else {
+      menu.setDirection(1);
+      menu.setSpeed(2);
+      menu.play();
+      menuState = true;
+    }
+  });
+</script>
 <style>
+  .menuIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 8rem;
+    height: 8rem;
+  }
+  .menuIcon:hover {
+    cursor: pointer;
+  }
   #stars {
     position: absolute;
     z-index: -2;
