@@ -9,10 +9,11 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 <script>
   import { Application } from "@splinetool/runtime";
-
-  const canvas = document.getElementById("canvas3d") as HTMLCanvasElement;
-  const app = new Application(canvas);
-  app.load("https://draft.spline.design/V0ebpTK-qAS7BwPU/scene.splinecode");
+  document.addEventListener("astro:load", () => {
+    const canvas = document.getElementById("canvas3d") as HTMLCanvasElement;
+    const app = new Application(canvas);
+    app.load("https://draft.spline.design/V0ebpTK-qAS7BwPU/scene.splinecode");
+  });
 </script>
 
 <style>
