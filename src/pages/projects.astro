@@ -5,51 +5,7 @@ import "@fontsource/red-hat-display/300.css";
 import "@glidejs/glide/dist/css/glide.core.min.css";
 import "@glidejs/glide/dist/css/glide.theme.min.css";
 
-interface Projects {
-  name: string;
-  description: string;
-  image: string;
-  url: string;
-}
-const projects: Projects[] = [
-  {
-    name: "Portfolio Page",
-    description: "A Page, for me and my projects.",
-    image: "portfolio.png",
-    url: "https://github.com/arjunindia/arjunindia.github.io",
-  },
-  {
-    name: "TUI Pokedex",
-    description: "A Pokedex in your terminal.",
-    image: "tuipokedex.png",
-    url: "https://github.com/arjunindia/tui_pokedex",
-  },
-  {
-    name: "PixelPlace",
-    description:
-      "Collaborative drawing board where users can draw on a canvas and see the changes made by other users in realtime.",
-    image: "pixelplace.png",
-    url: "https://github.com/arjunindia/Hak-Night",
-  },
-  {
-    name: "Chikku",
-    description: "A discord bot used for giving points as rewards for projects",
-    image: "chikku.png",
-    url: "https://github.com/arjunindia/Chikku-bot",
-  },
-  {
-    name: "Lucia",
-    description: "A multimedia discord bot.",
-    image: "lucia.png",
-    url: "https://github.com/arjunindia/Lucia-bot",
-  },
-  {
-    name: "Fake E-Commerce",
-    description: "A fake E-Commerce app using NextJS 12 SSR.",
-    image: "fake-ecommerce.png",
-    url: "https://github.com/arjunindia/fake-ecommerce-app",
-  },
-];
+import { projects } from "../projects";
 ---
 
 <Layout title="Projects" description="An Array of projects I have made.">
