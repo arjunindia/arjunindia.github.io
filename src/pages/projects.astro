@@ -75,24 +75,25 @@ const projects: Projects[] = [
 <script>
   // @ts-ignore
   import Glide from "@glidejs/glide";
+  document.addEventListener("astro:load", () => {
+    new Glide(".glide", {
+      type: "slider",
+      startAt: 0,
+      perView: 4,
+      autoplay: 2000,
+      focusAt: 1,
+      gap: 30,
 
-  new Glide(".glide", {
-    type: "slider",
-    startAt: 0,
-    perView: 4,
-    autoplay: 2000,
-    focusAt: 1,
-    gap: 30,
-
-    breakpoints: {
-      1200: {
-        perView: 2,
+      breakpoints: {
+        1200: {
+          perView: 2,
+        },
+        800: {
+          perView: 1,
+        },
       },
-      800: {
-        perView: 1,
-      },
-    },
-  }).mount();
+    }).mount();
+  });
 </script>
 
 <style>

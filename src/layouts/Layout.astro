@@ -22,7 +22,7 @@ import Sidenav from "../components/Sidenav.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <!-- <ViewTransitions /> -->
+    <ViewTransitions />
   </head>
   <body>
     <img src="/blurCorner.png" aria-hidden="true" class="blurCorner" />
@@ -32,88 +32,97 @@ import Sidenav from "../components/Sidenav.astro";
       <p id="description">{description}</p>
     </div>
     <slot />
-    <Sidenav />
+    <Sidenav transition:persist />
     <script>
-      //@ts-nocheck
-      const canvas = document.getElementById("stars")! as HTMLCanvasElement;
-      const ctx = canvas.getContext("2d");
+      document.addEventListener("astro:load", () => {
+        //@ts-nocheck
+        const canvas = document.getElementById("stars")! as HTMLCanvasElement;
+        const ctx = canvas.getContext("2d");
 
-      let screen = {};
-      let stars = [];
-      let params = { speed: 2, number: 300, extinction: 4 };
+        let screen = {};
+        let stars = [];
+        let params = { speed: 2, number: 300, extinction: 4 };
 
-      setupStars();
-      updateStars();
-
-      // update stars on resize to keep the thing centered
-      window.onresize = function () {
         setupStars();
-      };
+        updateStars();
 
-      // star constructor
-      function Star() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.z = Math.random() * canvas.width;
-
-        this.move = function () {
-          this.z -= params.speed;
-          if (this.z <= 0) {
-            this.z = canvas.width;
-          }
+        // update stars on resize to keep the thing centered
+        window.onresize = function () {
+          setupStars();
         };
 
-        this.show = function () {
-          let x, y, rad, opacity;
-          x = (this.x - screen.c[0]) * (canvas.width / this.z);
-          x = x + screen.c[0];
-          y = (this.y - screen.c[1]) * (canvas.width / this.z);
-          y = y + screen.c[1];
-          rad = canvas.width / this.z;
-          opacity =
-            rad > params.extinction ? 1.5 * (2 - rad / params.extinction) : 1;
+        // star constructor
+        function Star() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.z = Math.random() * canvas.width;
 
-          ctx.beginPath();
-          ctx.fillStyle = "rgba(255, 255, 255, " + opacity + ")";
-          ctx.arc(x, y, rad, 0, Math.PI * 2);
-          ctx.fill();
-        };
-      }
+          this.move = function () {
+            this.z -= params.speed;
+            if (this.z <= 0) {
+              this.z = canvas.width;
+            }
+          };
 
-      // setup <canvas>, create all the starts
-      function setupStars() {
-        screen = {
-          w: window.innerWidth,
-          h: window.innerHeight,
-          c: [window.innerWidth * 0.5, window.innerHeight * 0.5],
-        };
-        window.cancelAnimationFrame(updateStars);
-        canvas.width = screen.w;
-        canvas.height = screen.h;
-        stars = [];
-        for (let i = 0; i < params.number; i++) {
-          stars[i] = new Star();
+          this.show = function () {
+            let x, y, rad, opacity;
+            x = (this.x - screen.c[0]) * (canvas.width / this.z);
+            x = x + screen.c[0];
+            y = (this.y - screen.c[1]) * (canvas.width / this.z);
+            y = y + screen.c[1];
+            rad = canvas.width / this.z;
+            opacity =
+              rad > params.extinction ? 1.5 * (2 - rad / params.extinction) : 1;
+
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(255, 255, 255, " + opacity + ")";
+            ctx.arc(x, y, rad, 0, Math.PI * 2);
+            ctx.fill();
+          };
         }
-      }
 
-      function updateStars() {
-        ctx.fillStyle = "black";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        stars.forEach(function (s) {
-          s.show();
-          s.move();
-        });
-        window.requestAnimationFrame(updateStars);
-      }
+        // setup <canvas>, create all the starts
+        function setupStars() {
+          screen = {
+            w: window.innerWidth,
+            h: window.innerHeight,
+            c: [window.innerWidth * 0.5, window.innerHeight * 0.5],
+          };
+          window.cancelAnimationFrame(updateStars);
+          canvas.width = screen.w;
+          canvas.height = screen.h;
+          stars = [];
+          for (let i = 0; i < params.number; i++) {
+            stars[i] = new Star();
+          }
+        }
+
+        function updateStars() {
+          ctx.fillStyle = "black";
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+          stars.forEach(function (s) {
+            s.show();
+            s.move();
+          });
+          window.requestAnimationFrame(updateStars);
+        }
+      });
     </script>
     <script>
       import anime from "animejs";
       import { breakApart } from "../utils";
-
-      breakApart("letters", "#title", false, 1000).play();
-      breakApart("letters", "#description", false, 2000).play();
+      document.addEventListener("astro:load", () => {
+        breakApart("letters", "#title", false, 1000).play();
+        breakApart("letters", "#description", false, 2000).play();
+      });
     </script>
     <style>
+      #title {
+        opacity: 0;
+      }
+      #description {
+        opacity: 0;
+      }
       #stars {
         position: absolute;
         z-index: -2;

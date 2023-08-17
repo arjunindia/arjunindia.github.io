@@ -51,7 +51,12 @@ export function breakApart(breakType:string, txtRef:string, setAlternate:boolean
           opacity: [0,1],
           easing: "easeInOutElastic(0.7, .3)",
           duration: 2000,
-          delay: (()=>(stagger?staggerVal: (el,i)=>delayVal + (50 * i)))()
+          delay: (()=>(stagger?staggerVal: (el,i)=>delayVal + (50 * i)))(),
+          update: function(anim) {
+            document.querySelectorAll<HTMLElement>(txtRef).forEach((element)=>{
+             element.style.opacity = "1";
+            });
+          }
         },offset)
     return t14;
 }

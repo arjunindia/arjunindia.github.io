@@ -17,46 +17,48 @@
   import "@lottiefiles/lottie-player";
   import anime from "animejs";
   import { breakApart } from "../utils";
-  const menuAnim = breakApart(
-    "letters",
-    ".menu ul li a",
-    false,
-    0,
-    true,
-    anime.stagger(100)
-  );
-  // menu animation
-  const menu = document.querySelector(".menuIcon") as LottiePlayer;
-  const menuEl = document.querySelector(".menu") as HTMLElement;
+  document.addEventListener("astro:load", () => {
+    const menuAnim = breakApart(
+      "letters",
+      ".menu ul li a",
+      false,
+      0,
+      true,
+      anime.stagger(100)
+    );
+    // menu animation
+    const menu = document.querySelector(".menuIcon") as LottiePlayer;
+    const menuEl = document.querySelector(".menu") as HTMLElement;
 
-  let menuState: boolean = false;
-  menu.addEventListener("click", () => {
-    if (menuState) {
-      menu.setDirection(-1);
-      menu.setSpeed(2.2);
-      menu.play();
-      menuEl.style.transform = "translateX(100%)";
-      menuState = false;
-    } else {
-      menu.setDirection(1);
-      menu.setSpeed(2);
-      menu.play();
-      menuEl.style.transform = "translateX(0%)";
-      menuAnim.play();
-      menuState = true;
-    }
-  });
+    let menuState: boolean = false;
+    menu.addEventListener("click", () => {
+      if (menuState) {
+        menu.setDirection(-1);
+        menu.setSpeed(2.2);
+        menu.play();
+        menuEl.style.transform = "translateX(100%)";
+        menuState = false;
+      } else {
+        menu.setDirection(1);
+        menu.setSpeed(2);
+        menu.play();
+        menuEl.style.transform = "translateX(0%)";
+        menuAnim.play();
+        menuState = true;
+      }
+    });
 
-  // menu
+    // menu
 
-  const menuItems = document.querySelectorAll(".menu ul li a");
-  menuItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      menu.setDirection(1);
-      menu.setSpeed(2.2);
-      menu.play();
-      menuState = false;
-      menuEl.style.transform = "translateX(0%)";
+    const menuItems = document.querySelectorAll(".menu ul li a");
+    menuItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        menu.setDirection(1);
+        menu.setSpeed(2.2);
+        menu.play();
+        menuState = false;
+        menuEl.style.transform = "translateX(0%)";
+      });
     });
   });
 </script>
