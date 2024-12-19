@@ -17,7 +17,7 @@
     "@lottiefiles/lottie-player": "^2.0.2",
     "@splinetool/runtime": "^0.9.420",
     "animejs": "^3.2.1",
-    "astro": "^2.10.8"
+    "astro": "^4.16.18"
   },
   "devDependencies": {
     "@types/animejs": "^3.1.7",
